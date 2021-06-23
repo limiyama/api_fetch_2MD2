@@ -3,14 +3,13 @@ window.onload = function(){
   const buscar = document.querySelector("#buscar");
   const cep = document.querySelector("#cep");
   const opcoes = {
-    method = 'GET',
-    mede = 'cors',
+    method: 'GET',
+    mede: 'cors',
     cache: 'default',
   }
 
   buscar.addEventListener("click", function() {
-    alert(cep.value);
-    fetch(`https://viacep.com.br/ws/01001000/json/`, opcoes)
+    fetch(`https://viacep.com.br/ws/${ cep.value }/json`, opcoes)
       .then(response => {response.json() 
         .then(data => {
           document.querySelector("#estado").value = data['uf'];
